@@ -1,20 +1,66 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Main = styled.main``;
+const Main = styled.main`
+  max-width: 80rem;
+  margin: 3.175rem auto;
+  text-align: center;
+`;
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  font-size: 1rem;
+  margin-right: 0.625rem;
+  padding: 0.3125rem 0.375rem;
+`;
 
-const StyledButton = styled.button``;
+const StyledButton = styled.button`
+  color: #fff;
+  background: #000;
+  padding: 0.3125rem 1rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  border-radius: 0.3125rem;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+`;
 
-const Meme = styled.div``;
+const Meme = styled.div`
+  background-size: 100%;
+  ${({ randomImg }) => `
+    background-image: url('${randomImg.url}');  
+    width: ${randomImg.width}px;
+    height: ${randomImg.height}px;`}
+  max-width: 80rem;
+  margin: 1.5625rem auto;
+  text-align: center;
+  position: relative;
+`;
+
+const textStyles = ` 
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 1rem 0;
+  font-size: 2em;
+  font-family: impact;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
+    -2px 2px 0 #000, 0px 2px 0 #000, 2px 0px 0 #000, 0px -2px 0 #000,
+    -2px 0px 0 #000, 2px 2px 5px #000;`;
 
 const TopText = styled.h2`
   top: 0;
+  ${textStyles}
 `;
 
 const BottomText = styled.h2`
   bottom: 0;
+  ${textStyles}
 `;
 
 const MemeGenerator = () => {
